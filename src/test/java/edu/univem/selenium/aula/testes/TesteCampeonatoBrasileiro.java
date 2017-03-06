@@ -22,13 +22,16 @@ public class TesteCampeonatoBrasileiro {
 
     }
 
+    /**
+     * https://esporte.uol.com.br/futebol/campeonatos/liga-dos-campeoes/jogos/#fase-de-grupos
+     */
     @Test
     public void verificarTimesClassificadosOitavasUEFAChampions(){
 
     }
 
     /**
-     * http://esporte.uol.com.br/futebol/campeonatos/liga-dos-campeoes/jogos/
+     * https://esporte.uol.com.br/futebol/campeonatos/liga-dos-campeoes/jogos/#fase-de-grupos
      */
     @Test
     public void verificarBarcelonaMelhorRealMadridUEFAChampions(){

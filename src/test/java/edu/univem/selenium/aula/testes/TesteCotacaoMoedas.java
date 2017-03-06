@@ -82,7 +82,7 @@ public class TesteCotacaoMoedas  extends SeleniumTest {
      * Dado que a cota para viagens para o exterior é de $500. Consulte a cota
      * em R$ (reais) utilizando o "Conversor de Moedas"
      * 
-     * Site: Utilizar http://www.google.com com a busca "Dolar to Real" 
+     * Site: Utilizar http://www.economia.com.br com a busca "Dolar to Real"
      * Verificacoes: 
      *      Cotacao do dolar está maior que R$ 3,00
      *      Verificar que o valor é maior que R$ 1600

@@ -70,8 +70,8 @@ public class TesteCotacaoMoedas  extends SeleniumTest {
 
         selenium.takeScreenshot();
 
-        assertEquals("14/09/2012 2,0111", cotacaoMaisBaixaMaisAlta.get(0));
-        assertEquals("02/08/2012 2,0507", cotacaoMaisBaixaMaisAlta.get(1));
+        assertEquals("18/04/2018 3,3801", cotacaoMaisBaixaMaisAlta.get(0));
+        assertEquals("07/06/2018 3,9258", cotacaoMaisBaixaMaisAlta.get(1));
         System.out.println("Cotação mais BAIXA: "
                 + cotacaoMaisBaixaMaisAlta.get(0));
         System.out.println("Cotação mais ALTA:  "

@@ -17,7 +17,7 @@ public class TelaFlights {
 
     private SeleniumWebDriver selenium;
     private static final String URL = "https://www.tripadvisor.com/CheapFlightsHome";
-    private final String locatorVooMaisBarato = "div.entry.show:nth-of-type(1) ";
+    private final String locatorVooMaisBarato = "div.flightList > div:nth-child(1) ";
 
     public TelaFlights(SeleniumWebDriver selenium) {
         this.selenium = selenium;
@@ -32,23 +32,24 @@ public class TelaFlights {
         selenium.clickByLinkText("One-way");
     }
 
-    public void preencherDadosBuscaVoo(String origem, String destino, String dia) {
-        //selenium.type("#ow_1_airportFrom",origem);
-        selenium.type("#ow_1_airportTo",destino);
-        //selenium.type("#date_picker_in_1","11/22/2016");
-        selenium.click("#date_picker_in_1");
-        selenium.click("div.month:nth-of-type(3) .day_"+ dia);
+    public void preencherDadosBuscaVoo(String origem, String destino, String dia) throws InterruptedException {
+        selenium.type("div.tabContent.oneWay.active input.query.origWithLabel",origem);
+        Thread.sleep(1000);
+        selenium.type("div.tabContent.oneWay.active input.query.destWithLabel",destino);
+        Thread.sleep(1000);
+        selenium.click("#ow_ui_picker.ui_picker");
+        selenium.click("span.dsdc-month:nth-child(1)  span[data-date=\"2018-6-" + dia +"\"]");
 
-        selenium.uncheck("#cb_Decolar_com_br");
-        selenium.uncheck("#cb_MAxMilhas");
-        selenium.uncheck("#cb_Expedia_com_br");
-
-        selenium.click("#CHECK_FARES_BUTTON");
+//        selenium.uncheck("#cb_Decolar_com_br");
+//        selenium.uncheck("#cb_MAxMilhas");
+//        selenium.uncheck("#cb_Expedia_com_br");
+        selenium.click("div.tabContent.oneWay.active button.form_submit.searchBtn.en_US.en");
     }
 
+
     public void getMenorPrecoVoo() {
-        selenium.waitForVisible("div.flightList");
-        String menorPreco = selenium.getText(locatorVooMaisBarato + "span.price");
+        selenium.waitForElementPresent("div.flightList");
+        String menorPreco = selenium.getText(locatorVooMaisBarato + "div.viewDeal span.viewDealPrice");
 
         System.out.println("Menor Preço: " + menorPreco);
 
@@ -76,7 +77,7 @@ public class TelaFlights {
         infoVoo.setDuracaoVoo(duracaoVooCal);
 
         infoVoo.setParadas(selenium.getText(locatorVooMaisBarato + "div.segmentStops"));
-        infoVoo.setValor(selenium.getText(locatorVooMaisBarato + "span.price"));
+        infoVoo.setValor(selenium.getText(locatorVooMaisBarato + "span.viewDealPrice"));
 
         System.out.println(infoVoo.toString());
 

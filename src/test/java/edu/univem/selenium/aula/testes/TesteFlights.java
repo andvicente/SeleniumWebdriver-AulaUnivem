@@ -24,8 +24,8 @@ public class TesteFlights  extends SeleniumTest{
     }
 
     @Test
-    public void buscaVooMaisBaratoSpParaCvel() throws ParseException {
-        String saoPauloTodosAeroportos = "Sao Paulo, Brazil - All Airports (SAO)";
+    public void buscaVooMaisBaratoSpParaCvel() throws ParseException, InterruptedException {
+        String saoPauloTodosAeroportos = "Sao Paulo (SAO)";
         String cascavel = "Cascavel, Brazil - Cascavel Mncpl (CAC)";
 
         telaFlights.selecionarSomenteIda();

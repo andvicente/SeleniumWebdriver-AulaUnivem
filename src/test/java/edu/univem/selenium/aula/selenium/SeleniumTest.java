@@ -1,21 +1,20 @@
 package edu.univem.selenium.aula.selenium;
 
-import  java.io.File;
-import  java.io.IOException;
-import  java.util.concurrent.TimeUnit;
+import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.runner.RunWith;
+import org.junit.runners.BlockJUnit4ClassRunner;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-import  junit.framework.TestCase;
-
-import  org.junit.After;
-import  org.junit.AfterClass;
-import  org.junit.Before;
-import  org.junit.BeforeClass;
-import  org.junit.runner.RunWith;
-import  org.junit.runners.BlockJUnit4ClassRunner;
-import  org.openqa.selenium.WebDriver;
-import  org.openqa.selenium.chrome.ChromeDriverService;
-import  org.openqa.selenium.remote.DesiredCapabilities;
-import  org.openqa.selenium.remote.RemoteWebDriver;
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class SeleniumTest extends TestCase {
@@ -42,6 +41,7 @@ public class SeleniumTest extends TestCase {
         this.driver = new RemoteWebDriver(service.getUrl(),
                 DesiredCapabilities.chrome());
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
     }
 
     @After

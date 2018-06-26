@@ -1,17 +1,5 @@
 package edu.univem.selenium.aula.selenium;
 
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Date;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotVisibleException;
@@ -21,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,9 +17,20 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Date;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 public class SeleniumWebDriver {
 
-    private static final long DEFAULT_TIME_WAIT = 5;
+    private static final long DEFAULT_TIME_WAIT = 20;
     public WebDriver driver;
     private Wait<WebDriver> defaultWait;
     private JavascriptExecutor jsExecutor;
@@ -63,6 +63,13 @@ public class SeleniumWebDriver {
         waitForVisible(locator);
         waitForClickable(locator);
         element(locator).click();
+    }
+
+    public void clickUsingJS(String locator){
+        waitForVisible(locator);
+        waitForClickable(locator);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element(locator)).click().build().perform();
     }
 
     /**
@@ -183,8 +190,8 @@ public class SeleniumWebDriver {
     private void waitForClickable(String locator) {
         defaultWait.until(ExpectedConditions.elementToBeClickable(By
                 .cssSelector(locator)));
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);",
-                element(locator));
+//        jsExecutor.executeScript("arguments[0].scrollIntoView(true);",
+//                element(locator));
     }
 
     /**

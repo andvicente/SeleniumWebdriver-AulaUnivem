@@ -18,13 +18,20 @@ public class TesteCampeonatoBrasileiro {
     }
 
     @Test
-    public void verificarTimesZonaRebaixamento(){
+    public void verificarTimesZonaRebaixamentoComPontuacao(){
 
     }
 
     /**
      * https://esporte.uol.com.br/futebol/campeonatos/liga-dos-campeoes/jogos/#fase-de-grupos
-     */
+     * section:nth-child (Grupo)
+     * td:nth-child(1) (1o ou 2o do Grupo)
+     * th:nth-child(2) (Nome do Time)
+     *
+     * Grupo A - Manchester United
+     * section.fase.classificacao.fase-de-grupos > section:nth-child(3) > div > table > tbody.zona-1 > tr:nth-child(1) > th:nth-child(2)
+     *
+     * */
     @Test
     public void verificarTimesClassificadosOitavasUEFAChampions(){
 

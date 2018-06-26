@@ -85,7 +85,7 @@ public class TelaHistoricoMoeda {
 				nColuna));
 	}
 
-	// M�TODOS DE LOCALIZA��O DE ELEMENTOS DA TELA
+	// M�TODOS DE LOCALIZAÇÃO DE ELEMENTOS DA TELA
 
 	private String localizarCelulaTabelaHistoricoMoeda(int nLinha, int nColuna) {
 		return "table.tabela-historica tbody tr:nth-of-type(" + nLinha
@@ -93,7 +93,7 @@ public class TelaHistoricoMoeda {
 	}
 
 	private String localizarHistoricoMoeda() {
-		return "Hist�rico da moeda";
+		return "Histórico da moeda";
 	}
 
 	private String localizarFrameHistorico() {
@@ -120,7 +120,7 @@ public class TelaHistoricoMoeda {
 
 		List list = new LinkedList(unsortMap.entrySet());
 
-		System.out.print("Ordenando Cota��es... \n");
+		System.out.print("Ordenando Cotações... \n");
 		// sort list based on comparator
 		Collections.sort(list, new Comparator() {
 			public int compare(Object o1, Object o2) {

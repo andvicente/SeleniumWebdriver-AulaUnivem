@@ -26,7 +26,7 @@ public class SeleniumTest extends TestCase {
     public static void createAndStartService() throws IOException {
         service = new ChromeDriverService.Builder()
                 .usingDriverExecutable(
-                        new File("./src/test/resources/chromedriver"))
+                        new File("./src/test/resources/chromedriver_mac64"))
                 .usingAnyFreePort().build();
         service.start();
     }

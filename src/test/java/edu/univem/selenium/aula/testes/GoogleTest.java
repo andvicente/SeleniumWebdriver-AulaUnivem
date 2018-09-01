@@ -29,7 +29,7 @@ public class GoogleTest extends SeleniumTest{
                 .cssSelector("#rso > div:nth-child(1) h3 > a"));
         resultadoGoogle.click();
 
-        assertEquals("André Abe Vicente | LinkedIn", driver.getTitle());
+        assertEquals("André Abe Vicente - Software Quality Specialist - PagSeguro UOL | LinkedIn", driver.getTitle());
 
         driver.navigate().back();
 

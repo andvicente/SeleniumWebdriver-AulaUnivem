@@ -39,6 +39,8 @@ public class SeleniumWebDriver {
         this.driver = driver;
         this.jsExecutor = (JavascriptExecutor) driver;
         this.defaultWait = new WebDriverWait(driver, DEFAULT_TIME_WAIT);
+        System.setProperty("webdriver.chrome.logfile", "./chromedriver.log");
+        System.setProperty("webdriver.chrome.verboseLogging", "true");
     }
 
     /**
@@ -366,6 +368,10 @@ public class SeleniumWebDriver {
     public void assertValue(String locator, String value) {
         assertEquals("O valor do elemento nao e' o esperado", value,
                 element(locator).getAttribute("value"));
+    }
+
+    public String getValue(String locator) {
+       return element(locator).getAttribute("value");
     }
 
     public void assertSelectedLabel(String locator, String value) {
